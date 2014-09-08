@@ -47,6 +47,9 @@ public class Line implements Serializable {
     private Long hjid;
     @Column(length = 255)
     private String colonyid;
+    @Basic(optional = true)
+    @Column(nullable = true, length = 255)
+    private String sequenceid;
     @JoinColumn(name = "LINE_CENTREPROCEDURE_HJID", referencedColumnName = "HJID")
     @ManyToOne(cascade = CascadeType.ALL)
     private Centreprocedure lineCentreprocedureHjid;
@@ -75,6 +78,14 @@ public class Line implements Serializable {
 
     public void setColonyid(String colonyid) {
         this.colonyid = colonyid;
+    }
+
+    public String getSequenceid() {
+        return sequenceid;
+    }
+
+    public void setSequenceid(String sequenceid) {
+        this.sequenceid = sequenceid;
     }
 
     public Centreprocedure getLineCentreprocedureHjid() {
